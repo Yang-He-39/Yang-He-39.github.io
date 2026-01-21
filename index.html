@@ -1,0 +1,620 @@
+<!--
+Professional one-page website (single file).
+1) Create a repo (recommended): <your-username>.github.io
+2) Add this as index.html at repo root
+3) Settings → Pages → Deploy from branch → main / (root)
+4) Your site goes live at https://<your-username>.github.io
+
+Tip: Replace placeholders like EMAIL, LINKEDIN, etc.
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YH — Quant Finance & AI Research</title>
+  <meta name="description" content="YH — Quantitative Finance, AI disclosure research, and applied AI projects." />
+  <meta property="og:title" content="YH — Quant Finance & AI Research" />
+  <meta property="og:description" content="Research and projects across AI disclosures, text analytics, and AI agents for business workflows." />
+  <meta property="og:type" content="website" />
+
+  <style>
+    :root{
+      --bg: #0b0f17;
+      --panel: rgba(255,255,255,0.06);
+      --panel2: rgba(255,255,255,0.08);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.72);
+      --faint: rgba(255,255,255,0.55);
+      --border: rgba(255,255,255,0.14);
+      --accent: #7dd3fc;
+      --accent2: #a78bfa;
+      --shadow: 0 18px 50px rgba(0,0,0,0.35);
+      --radius: 18px;
+    }
+
+    *{ box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 20% 10%, rgba(125,211,252,0.18), transparent 55%),
+                  radial-gradient(900px 500px at 85% 15%, rgba(167,139,250,0.16), transparent 60%),
+                  radial-gradient(800px 600px at 50% 85%, rgba(16,185,129,0.10), transparent 60%),
+                  var(--bg);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .wrap{
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 28px 18px 60px;
+    }
+
+    /* Header */
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 16px;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.12);
+      border-radius: 999px;
+      backdrop-filter: blur(10px);
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      padding-left: 6px;
+    }
+    .avatar{
+      width: 34px; height: 34px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(125,211,252,0.95), rgba(167,139,250,0.95));
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+    .brand .name{
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+    .brand .tag{
+      color: var(--muted);
+      font-size: 12.5px;
+      margin-top: 1px;
+    }
+
+    nav{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding-right: 6px;
+    }
+    .navlink{
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      color: var(--muted);
+      font-size: 13.5px;
+    }
+    .navlink:hover{
+      text-decoration:none;
+      border-color: var(--border);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+    }
+
+    /* Hero */
+    .hero{
+      margin-top: 22px;
+      display:grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+    }
+    @media (max-width: 900px){
+      .hero{ grid-template-columns: 1fr; }
+    }
+
+    .card{
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.04));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .card .pad{ padding: 20px; }
+
+    .headline{
+      font-size: clamp(28px, 3vw, 42px);
+      line-height: 1.15;
+      margin: 0 0 12px;
+      letter-spacing: -0.4px;
+    }
+    .subhead{
+      color: var(--muted);
+      margin: 0 0 16px;
+      font-size: 15.5px;
+    }
+    .chiprow{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .chip{
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.14);
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .actions{
+      margin-top: 18px;
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      font-weight: 650;
+      font-size: 13.5px;
+      text-decoration:none;
+    }
+    .btn:hover{ text-decoration:none; background: rgba(255,255,255,0.09); }
+    .btn.primary{
+      border-color: rgba(125,211,252,0.45);
+      background: linear-gradient(135deg, rgba(125,211,252,0.22), rgba(167,139,250,0.18));
+    }
+
+    .side{
+      display:grid;
+      gap: 14px;
+    }
+    .kpi{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .stat{
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.12);
+      border-radius: 16px;
+      padding: 14px;
+    }
+    .stat .big{
+      font-size: 18px;
+      font-weight: 750;
+      letter-spacing: -0.2px;
+    }
+    .stat .small{
+      color: var(--muted);
+      font-size: 12.5px;
+      margin-top: 4px;
+    }
+    .mini{
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+      color: var(--muted);
+      font-size: 13.5px;
+    }
+
+    /* Sections */
+    .section{
+      margin-top: 18px;
+    }
+    .section h2{
+      margin: 0 0 12px;
+      font-size: 18px;
+      letter-spacing: -0.2px;
+    }
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 900px){
+      .grid2{ grid-template-columns: 1fr; }
+    }
+    .item{
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.12);
+      border-radius: 16px;
+      padding: 16px;
+    }
+    .item h3{
+      margin: 0 0 6px;
+      font-size: 15.5px;
+    }
+    .meta{
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+    .item p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 13.5px;
+    }
+
+    /* Tabs */
+    .tabs{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .tabbtn{
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.12);
+      color: var(--muted);
+      padding: 10px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 13.5px;
+      font-weight: 650;
+    }
+    .tabbtn:hover{ background: rgba(255,255,255,0.06); color: var(--text); }
+    .tabbtn.active{
+      color: var(--text);
+      border-color: rgba(125,211,252,0.45);
+      background: linear-gradient(135deg, rgba(125,211,252,0.20), rgba(167,139,250,0.16));
+    }
+    .tabpanel{
+      display:none;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.12);
+      border-radius: 16px;
+      padding: 16px;
+    }
+    .tabpanel.active{ display:block; }
+    .tabpanel h3{
+      margin: 0 0 6px;
+      font-size: 15.5px;
+    }
+    .bullets{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 13.5px;
+    }
+    .bullets li{ margin: 6px 0; }
+    .linksline{
+      margin-top: 12px;
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 13.5px;
+    }
+    .linksline a{
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      text-decoration: none;
+    }
+    .linksline a:hover{ background: rgba(255,255,255,0.07); }
+
+    /* Footer */
+    footer{
+      margin-top: 20px;
+      color: var(--faint);
+      font-size: 12.5px;
+      text-align:center;
+    }
+    .hr{
+      margin: 18px 0;
+      height: 1px;
+      background: rgba(255,255,255,0.10);
+      border: 0;
+    }
+
+    /* Print-friendly for CV-ish use */
+    @media print{
+      body{ background: #fff; color: #111; }
+      .topbar, .btn, .tabs, footer{ display:none !important; }
+      .card, .item, .tabpanel, .stat { box-shadow: none; background: #fff; border-color: #ddd; }
+      a{ color: #111; text-decoration: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="brand">
+        <div class="avatar" aria-hidden="true"></div>
+        <div>
+          <div class="name">YH</div>
+          <div class="tag">Quantitative Finance · AI & Text Analytics · Applied AI</div>
+        </div>
+      </div>
+      <nav aria-label="Primary navigation">
+        <a class="navlink" href="#about">About</a>
+        <a class="navlink" href="#experience">Experience</a>
+        <a class="navlink" href="#ai-projects">AI Projects</a>
+        <a class="navlink" href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div class="card">
+        <div class="pad">
+          <h1 class="headline">Building rigorous research and practical AI systems.</h1>
+          <p class="subhead">
+            I work at the intersection of <strong>empirical finance</strong>, <strong>corporate disclosures</strong>, and
+            <strong>applied AI</strong>—turning messy real-world text and business processes into reliable analytics and tools.
+          </p>
+
+          <div class="actions">
+            <!-- Replace these links -->
+            <a class="btn primary" href="#ai-projects">Explore AI Projects</a>
+            <a class="btn" href="mailto:EMAIL@example.com">Email</a>
+            <a class="btn" href="https://www.linkedin.com/in/YOUR-LINKEDIN/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn" href="https://github.com/YOUR-GITHUB" target="_blank" rel="noopener">GitHub</a>
+          </div>
+
+          <div class="chiprow" aria-label="Focus areas">
+            <span class="chip">Event studies · factor models</span>
+            <span class="chip">Earnings calls + quarterly reports (QR)</span>
+            <span class="chip">NLP: FinBERT / domain sentiment</span>
+            <span class="chip">LLM agents · RAG · workflow automation</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="side">
+        <div class="card">
+          <div class="pad">
+            <div class="kpi">
+              <div class="stat">
+                <div class="big">Finance + AI</div>
+                <div class="small">Empirical research + applied ML</div>
+              </div>
+              <div class="stat">
+                <div class="big">Europe · China</div>
+                <div class="small">Cross-market disclosure analytics</div>
+              </div>
+              <div class="stat">
+                <div class="big">Consulting</div>
+                <div class="small">EY Germany (current)</div>
+              </div>
+              <div class="stat">
+                <div class="big">PhD (incoming)</div>
+                <div class="small">Start: 17 Feb 2026 (HSG)</div>
+              </div>
+            </div>
+            <div class="mini">
+              Current focus: market reactions to AI-related disclosures (Talk vs. Realized language) and building AI tooling for complex business workflows.
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- About + Experience -->
+    <section class="section grid2" id="about">
+      <div class="item">
+        <h2>About</h2>
+        <p>
+          I’m YH, a quantitative economist/finance researcher and consultant focused on how AI changes decision-making in markets and firms.
+          My work combines event-study designs, asset pricing factor models, and text mining of management communication (earnings calls and quarterly reports).
+        </p>
+      </div>
+      <div class="item" id="experience">
+        <h2>Experience</h2>
+        <div class="meta">Selected highlights (edit as needed)</div>
+        <p>
+          <strong>EY Germany</strong> — Consulting (analytics, operational and process-driven workstreams).<br/>
+          <strong>Master’s thesis</strong> — Equity market reactions to AI-related corporate disclosures (Europe + China).<br/>
+          <strong>Incoming PhD</strong> — HSG (with co-supervision at UZH), building AI-enabled systems for operational decision workflows.
+        </p>
+      </div>
+    </section>
+
+    <!-- Selected Work -->
+    <section class="section grid2" aria-label="Selected work">
+      <div class="item">
+        <h2>Selected Work</h2>
+        <div class="meta">Research / analytics (replace with links to PDFs or repos)</div>
+        <p>
+          • Event-study pipeline with factor-model abnormal returns and robust inference<br/>
+          • NLP features for “AI Talk” vs “AI Realized” signals across disclosure channels<br/>
+          • Cross-market comparability: Europe (STOXX) vs China (SSE)
+        </p>
+      </div>
+      <div class="item">
+        <h2>Tooling</h2>
+        <div class="meta">Engineering & reproducibility</div>
+        <p>
+          • End-to-end Python pipelines (data merges, trading calendar alignment, outputs)<br/>
+          • Text analytics workflows for transcripts and quarterly reporting sections<br/>
+          • Reproducible tables/figures and clean handoff for supervisors/stakeholders
+        </p>
+      </div>
+    </section>
+
+    <!-- AI Projects (Tabs) -->
+    <section class="section" id="ai-projects">
+      <div class="card">
+        <div class="pad">
+          <h2>AI Projects</h2>
+          <p class="subhead" style="margin-top:-6px;">
+            Click a tab to explore project summaries. Replace the “Links” targets with your repos, PDFs, demos, or slides.
+          </p>
+
+          <div class="tabs" role="tablist" aria-label="AI project tabs">
+            <button class="tabbtn active" role="tab" aria-selected="true" aria-controls="tab-disclosure" id="btn-disclosure">AI Disclosure Research</button>
+            <button class="tabbtn" role="tab" aria-selected="false" aria-controls="tab-pipeline" id="btn-pipeline">Event Study Pipeline</button>
+            <button class="tabbtn" role="tab" aria-selected="false" aria-controls="tab-agent" id="btn-agent">AI Agent (Ops Workflows)</button>
+            <button class="tabbtn" role="tab" aria-selected="false" aria-controls="tab-rag" id="btn-rag">RAG Knowledge Base</button>
+          </div>
+
+          <div class="tabpanel active" role="tabpanel" id="tab-disclosure" aria-labelledby="btn-disclosure">
+            <h3>AI Disclosure Research: Talk vs. Realized</h3>
+            <div class="meta">Empirical finance · NLP · corporate communications</div>
+            <p class="subhead" style="margin: 0;">
+              Measuring how equity markets respond to AI-related corporate disclosures by separating “talk” from evidence of realized implementation.
+            </p>
+            <ul class="bullets">
+              <li>Disclosure channels: earnings calls (EC) and quarterly reports (QR).</li>
+              <li>Text features: AI intensity, tone signals (domain sentiment), and realized indicators.</li>
+              <li>Design: event windows + factor model baselines, robust inference and placebo checks.</li>
+            </ul>
+            <div class="linksline">
+              <a href="#" target="_blank" rel="noopener">Paper / PDF</a>
+              <a href="#" target="_blank" rel="noopener">Code (GitHub)</a>
+              <a href="#" target="_blank" rel="noopener">Slides</a>
+            </div>
+          </div>
+
+          <div class="tabpanel" role="tabpanel" id="tab-pipeline" aria-labelledby="btn-pipeline">
+            <h3>Reproducible Event-Study Pipeline</h3>
+            <div class="meta">Data engineering · asset pricing · reproducibility</div>
+            <p class="subhead" style="margin: 0;">
+              A robust, reproducible workflow that ingests prices, aligns trading calendars, builds event panels, and produces tables/figures end-to-end.
+            </p>
+            <ul class="bullets">
+              <li>Automated merging: firm identifiers, event timestamps, and market/factor data.</li>
+              <li>Outputs: clean panel datasets + publication-ready summary tables.</li>
+              <li>Validation: coverage flags, sanity checks, and structured export artifacts.</li>
+            </ul>
+            <div class="linksline">
+              <a href="#" target="_blank" rel="noopener">Repo</a>
+              <a href="#" target="_blank" rel="noopener">Method note</a>
+              <a href="#" target="_blank" rel="noopener">Example output</a>
+            </div>
+          </div>
+
+          <div class="tabpanel" role="tabpanel" id="tab-agent" aria-labelledby="btn-agent">
+            <h3>AI Agent for Operational Decision Workflows</h3>
+            <div class="meta">LLM agents · automation · business rules</div>
+            <p class="subhead" style="margin: 0;">
+              Designing an AI assistant that helps with complex, rules-constrained operational workflows by combining retrieval, structured reasoning, and auditability.
+            </p>
+            <ul class="bullets">
+              <li>Focus: reliable recommendations with traceable inputs and outputs.</li>
+              <li>Human-in-the-loop: review checkpoints for risk control and compliance.</li>
+              <li>Deliverable: an MVP that integrates into existing tooling without heavy re-platforming.</li>
+            </ul>
+            <div class="linksline">
+              <a href="#" target="_blank" rel="noopener">Concept note</a>
+              <a href="#" target="_blank" rel="noopener">Demo video</a>
+              <a href="#" target="_blank" rel="noopener">Architecture diagram</a>
+            </div>
+          </div>
+
+          <div class="tabpanel" role="tabpanel" id="tab-rag" aria-labelledby="btn-rag">
+            <h3>RAG Knowledge Base for Domain Documents</h3>
+            <div class="meta">Retrieval · evaluation · grounded answers</div>
+            <p class="subhead" style="margin: 0;">
+              Building a document-backed assistant that answers questions with citations, versioning, and quality checks—designed for real operational use.
+            </p>
+            <ul class="bullets">
+              <li>Pipeline: ingest → chunk → embed → retrieve → answer with references.</li>
+              <li>Quality: eval set, hallucination checks, and “I don’t know” behavior.</li>
+              <li>Operational: access control, audit logs, and update workflows.</li>
+            </ul>
+            <div class="linksline">
+              <a href="#" target="_blank" rel="noopener">Prototype</a>
+              <a href="#" target="_blank" rel="noopener">Evaluation notes</a>
+              <a href="#" target="_blank" rel="noopener">Docs</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <hr class="hr" />
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <div class="grid2">
+        <div class="item">
+          <h2>Contact</h2>
+          <p>
+            Email: <a href="mailto:EMAIL@example.com">EMAIL@example.com</a><br/>
+            LinkedIn: <a href="https://www.linkedin.com/in/YOUR-LINKEDIN/" target="_blank" rel="noopener">YOUR-LINKEDIN</a><br/>
+            GitHub: <a href="https://github.com/YOUR-GITHUB" target="_blank" rel="noopener">YOUR-GITHUB</a>
+          </p>
+        </div>
+        <div class="item">
+          <h2>Downloads</h2>
+          <p>
+            Add these files to your repo root and link them here:
+            <br/><br/>
+            <a class="btn" href="cv.pdf">CV (PDF)</a>
+            <a class="btn" href="research.pdf">Research Summary (PDF)</a>
+          </p>
+          <div class="meta" style="margin-top:10px;">
+            Tip: upload <code>cv.pdf</code> and <code>research.pdf</code> to the repository root.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> YH · Built with GitHub Pages
+    </footer>
+  </div>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Tabs
+    const buttons = Array.from(document.querySelectorAll('.tabbtn'));
+    const panels  = Array.from(document.querySelectorAll('.tabpanel'));
+
+    function activateTab(btn) {
+      buttons.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      panels.forEach(p => p.classList.remove('active'));
+
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      const panelId = btn.getAttribute('aria-controls');
+      const panel = document.getElementById(panelId);
+      if (panel) panel.classList.add('active');
+    }
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => activateTab(btn));
+      btn.addEventListener('keydown', (e) => {
+        // basic keyboard navigation
+        const idx = buttons.indexOf(btn);
+        if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          activateTab(buttons[(idx + 1) % buttons.length]);
+          buttons[(idx + 1) % buttons.length].focus();
+        } else if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          activateTab(buttons[(idx - 1 + buttons.length) % buttons.length]);
+          buttons[(idx - 1 + buttons.length) % buttons.length].focus();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
