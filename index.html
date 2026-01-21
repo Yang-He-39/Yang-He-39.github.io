@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>YH — Quant Finance & AI Research</title>
-  <meta name="description" content="YH — Quantitative finance, AI disclosure research, and applied AI systems." />
+  <title>YH — AI Agents for Business Workflows</title>
+  <meta name="description" content="YH — PhD (HSG) and EY consultant building tailored AI agents for business workflows, with a focus on operational transfer pricing and tax-compliant automation." />
 
-  <!-- Open Graph (better LinkedIn preview) -->
-  <meta property="og:title" content="YH — Quant Finance & AI Research" />
-  <meta property="og:description" content="Quant finance research, text analytics, and applied AI projects." />
+  <!-- Open Graph (LinkedIn preview) -->
+  <meta property="og:title" content="YH — AI Agents for Business Workflows" />
+  <meta property="og:description" content="PhD (HSG) & EY consultant. Tailored AI agents for business workflows—operational transfer pricing, tax regulation, and auditable automation in KNIME/Alteryx." />
   <meta property="og:type" content="website" />
 
   <style>
@@ -22,7 +22,6 @@
       --border: rgba(255,255,255,0.14);
       --accent: #7dd3fc;
       --accent2: #a78bfa;
-      --ok: rgba(16,185,129,0.85);
       --shadow: 0 18px 50px rgba(0,0,0,0.35);
       --radius: 18px;
       --radius2: 26px;
@@ -70,7 +69,7 @@
       align-items:center;
       gap: 12px;
       padding-left: 6px;
-      min-width: 240px;
+      min-width: 260px;
     }
     .dot{
       width: 10px; height: 10px;
@@ -166,7 +165,7 @@
       border: 1px solid var(--border);
       background: rgba(255,255,255,0.06);
       color: var(--text);
-      font-weight: 700;
+      font-weight: 800;
       font-size: 13.5px;
       text-decoration:none;
       white-space: nowrap;
@@ -176,16 +175,10 @@
       border-color: rgba(125,211,252,0.45);
       background: linear-gradient(135deg, rgba(125,211,252,0.22), rgba(167,139,250,0.16));
     }
-    .btn.ghost{
-      background: rgba(0,0,0,0.12);
-    }
+    .btn.ghost{ background: rgba(0,0,0,0.12); }
 
     /* Profile card */
-    .profile{
-      display:flex;
-      flex-direction: column;
-      gap: 14px;
-    }
+    .profile{ display:flex; flex-direction: column; gap: 14px; }
     .photo{
       border-radius: 22px;
       border: 1px solid var(--border);
@@ -230,7 +223,7 @@
       border-radius: 18px;
       padding: 14px;
     }
-    .stat .big{ font-size: 15px; font-weight: 800; letter-spacing: -0.2px; }
+    .stat .big{ font-size: 15px; font-weight: 900; letter-spacing: -0.2px; }
     .stat .small{ color: var(--muted); font-size: 12.5px; margin-top: 4px; }
 
     /* Sections */
@@ -254,15 +247,8 @@
       border-radius: 20px;
       padding: 16px;
     }
-    .item h3{
-      margin: 0 0 6px;
-      font-size: 15.5px;
-    }
-    .meta{
-      color: var(--muted);
-      font-size: 13px;
-      margin-bottom: 10px;
-    }
+    .item h3{ margin: 0 0 6px; font-size: 15.5px; }
+    .meta{ color: var(--muted); font-size: 13px; margin-bottom: 10px; }
     .item p{ margin: 0; color: var(--muted); font-size: 13.5px; }
 
     /* Timeline */
@@ -276,23 +262,14 @@
       background: rgba(255,255,255,0.03);
     }
     .role .badge{
-      width: 10px;
-      min-width: 10px;
-      height: 10px;
+      width: 10px; min-width: 10px; height: 10px;
       border-radius: 999px;
       margin-top: 6px;
       background: rgba(125,211,252,0.85);
       box-shadow: 0 10px 22px rgba(0,0,0,0.25);
     }
-    .role .title{
-      font-weight: 800;
-      letter-spacing: -0.1px;
-    }
-    .role .when{
-      color: var(--faint);
-      font-size: 12.5px;
-      margin-top: 2px;
-    }
+    .role .title{ font-weight: 900; letter-spacing: -0.1px; }
+    .role .when{ color: var(--faint); font-size: 12.5px; margin-top: 2px; }
     .role ul{
       margin: 8px 0 0;
       padding-left: 18px;
@@ -321,12 +298,11 @@
       display:flex;
       flex-direction: column;
       gap: 8px;
+      min-height: 180px;
     }
     .proj .pill{
       display:inline-flex;
       align-self:flex-start;
-      gap: 8px;
-      align-items:center;
       padding: 6px 10px;
       border-radius: 999px;
       border: 1px solid var(--border);
@@ -336,20 +312,17 @@
     }
     .proj .ptitle{
       font-size: 15.5px;
-      font-weight: 850;
+      font-weight: 950;
       letter-spacing: -0.2px;
       margin-top: 2px;
     }
-    .proj p{
-      margin:0;
-      color: var(--muted);
-      font-size: 13.5px;
-    }
+    .proj p{ margin:0; color: var(--muted); font-size: 13.5px; }
     .proj .links{
-      margin-top: 8px;
+      margin-top: auto;
       display:flex;
       flex-wrap: wrap;
       gap: 8px;
+      padding-top: 10px;
     }
     .plink{
       padding: 8px 10px;
@@ -362,7 +335,7 @@
     }
     .plink:hover{ background: rgba(255,255,255,0.07); text-decoration:none; }
 
-    /* Tabs (AI projects) */
+    /* Tabs */
     .tabs{ display:flex; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
     .tabbtn{
       border: 1px solid var(--border);
@@ -372,7 +345,7 @@
       border-radius: 999px;
       cursor:pointer;
       font-size: 13.5px;
-      font-weight: 800;
+      font-weight: 950;
     }
     .tabbtn:hover{ background: rgba(255,255,255,0.06); color: var(--text); }
     .tabbtn.active{
@@ -396,7 +369,6 @@
     .hr{ margin: 18px 0; height: 1px; background: rgba(255,255,255,0.10); border: 0; }
     footer{ margin-top: 18px; color: var(--faint); font-size: 12.5px; text-align:center; }
 
-    /* Print */
     @media print{
       body{ background:#fff; color:#111; }
       .topbar, .actions, .tabs, footer{ display:none !important; }
@@ -408,19 +380,18 @@
 
 <body>
   <div class="wrap">
-    <!-- Top -->
     <header class="topbar">
       <div class="brand">
         <div class="dot" aria-hidden="true"></div>
         <div>
           <div class="name">YH</div>
-          <div class="tag">Quantitative Economics/Finance · AI & Text Analytics · Applied AI</div>
+          <div class="tag">PhD (HSG) · Business Administration & Innovation · AI Agents for Business Workflows</div>
         </div>
       </div>
       <nav aria-label="Primary navigation">
         <a class="navlink" href="#about">About</a>
-        <a class="navlink" href="#experience">Experience</a>
-        <a class="navlink" href="#education">Education</a>
+        <a class="navlink" href="#experience">Work</a>
+        <a class="navlink" href="#education">Academic</a>
         <a class="navlink" href="#projects">Projects</a>
         <a class="navlink" href="#hobbies">Life</a>
         <a class="navlink" href="#contact">Contact</a>
@@ -431,17 +402,24 @@
     <section class="hero" id="top">
       <div class="card">
         <div class="pad">
-          <h1 class="headline">Research-driven finance analytics and practical AI systems.</h1>
+          <h1 class="headline">Tailored AI agents for auditable business workflows.</h1>
 
           <p class="subhead">
-            I’m <strong>YH</strong> — working at the intersection of <strong>empirical finance</strong>, <strong>corporate disclosures</strong>,
-            and <strong>applied AI</strong>. My current focus is measuring how equity markets react to AI-related disclosures
-            using event studies, factor models, and text mining of earnings calls and quarterly reports.
+            I’m <strong>YH</strong>, a <strong>PhD researcher at the University of St. Gallen (HSG)</strong> in
+            <strong>Business Administration</strong> with a focus on <strong>Business Innovation</strong>,
+            co-supervised at <strong>University of Zurich (UZH)</strong> and collaborating with <strong>ETH Zürich</strong>.
+            Alongside academia, I work as a <strong>Consultant in Operational Transfer Pricing at EY</strong>.
+          </p>
+
+          <p class="subhead" style="margin-top:-6px;">
+            My research and practice focus on building <strong>tailored AI agents</strong> that can operate inside real consulting and business processes:
+            grounded on regulations and internal data, producing <strong>traceable outputs</strong>, and integrating into workflow tools
+            like <strong>KNIME</strong> or <strong>Alteryx</strong>.
           </p>
 
           <div class="actions">
             <!-- Replace placeholders -->
-            <a class="btn primary" href="#projects">Explore projects</a>
+            <a class="btn primary" href="#projects">View the agent project</a>
             <a class="btn ghost" href="#contact">Contact</a>
             <a class="btn" href="mailto:YOUR_EMAIL@example.com">Email</a>
             <a class="btn" href="https://www.linkedin.com/in/YOUR_LINKEDIN/" target="_blank" rel="noopener">LinkedIn</a>
@@ -449,10 +427,10 @@
           </div>
 
           <div class="chips" aria-label="Focus areas">
-            <span class="chip">Event studies · factor models</span>
-            <span class="chip">Earnings calls + quarterly reports (QR)</span>
-            <span class="chip">NLP (FinBERT / domain sentiment)</span>
-            <span class="chip">LLM agents · RAG · workflow automation</span>
+            <span class="chip">AI agents · RAG · evaluation</span>
+            <span class="chip">Tax & transfer pricing (TPD, methods, regs)</span>
+            <span class="chip">Auditability · governance · human-in-the-loop</span>
+            <span class="chip">Workflow integration (KNIME / Alteryx)</span>
           </div>
         </div>
       </div>
@@ -467,26 +445,26 @@
 
             <div class="kpis" style="margin-top:14px;">
               <div class="stat">
-                <div class="big">Finance × AI</div>
-                <div class="small">Empirical research + NLP</div>
+                <div class="big">PhD (HSG)</div>
+                <div class="small">Biz Admin & Innovation</div>
               </div>
               <div class="stat">
-                <div class="big">Europe & China</div>
-                <div class="small">Cross-market analysis</div>
+                <div class="big">Co-supervision</div>
+                <div class="small">UZH · ETH Zürich</div>
               </div>
               <div class="stat">
-                <div class="big">Industry</div>
-                <div class="small">EY Germany (analytics)</div>
+                <div class="big">EY</div>
+                <div class="small">Operational TP consulting</div>
               </div>
               <div class="stat">
-                <div class="big">Academia</div>
-                <div class="small">PhD track (HSG)</div>
+                <div class="big">Focus</div>
+                <div class="small">Tailored AI agents</div>
               </div>
             </div>
 
             <div class="mini" style="margin-top:12px;">
-              <strong>Now:</strong> Master’s thesis + applied analytics work.<br/>
-              <strong>Next:</strong> building AI-enabled tools for complex, rules-constrained workflows.
+              <strong>Current build:</strong> an AI agent for transfer pricing documentation and method selection,
+              grounded in tax regulation and generating workflow-ready outputs.
             </div>
           </div>
         </div>
@@ -499,16 +477,16 @@
         <div class="item">
           <h2>Brief introduction</h2>
           <p>
-            I build reproducible research pipelines and decision-support tools. My work combines market data, factor models,
-            and domain NLP to extract signals from real-world corporate communication. I care about reliability, evaluation,
-            and making results understandable for both academic and business audiences.
+            I build AI systems that are useful in real consulting settings: they must be explainable, testable, and safe to use.
+            My work emphasizes <strong>grounded reasoning</strong> (retrieval + references), <strong>structured outputs</strong> (templates, tables, checklists),
+            and <strong>integration</strong> into operational tools rather than isolated chat interfaces.
           </p>
         </div>
         <div class="item">
-          <h2>What I’m good at</h2>
+          <h2>Research interests</h2>
           <p>
-            Python pipelines · event-study design · Fama-French factor models · text analytics for disclosures ·
-            documentation & reproducibility · bridging research and business constraints.
+            Tailored AI agents in business workflows · RAG with policy/regulatory corpora · evaluation & reliability ·
+            human-in-the-loop governance · workflow automation in KNIME/Alteryx · scalable documentation generation.
           </p>
         </div>
       </div>
@@ -523,11 +501,12 @@
             <div class="role">
               <div class="badge" aria-hidden="true"></div>
               <div>
-                <div class="title">Consultant — EY Germany</div>
-                <div class="when">Eschborn/Frankfurt · (replace dates)</div>
+                <div class="title">Consultant — Operational Transfer Pricing, EY Germany</div>
+                <div class="when">Germany · (add dates if you want)</div>
                 <ul>
-                  <li>Analytics + process workstreams; build structured, auditable workflows for complex business tasks.</li>
-                  <li>Translate business questions into reproducible data pipelines and stakeholder-ready outputs.</li>
+                  <li>Support operational transfer pricing engagements with strong emphasis on data, process design, and documentation quality.</li>
+                  <li>Translate tax/TP requirements into structured deliverables and repeatable workflows.</li>
+                  <li>Build automation components that reduce manual effort while preserving auditability and compliance.</li>
                 </ul>
               </div>
             </div>
@@ -535,26 +514,17 @@
             <div class="role">
               <div class="badge" aria-hidden="true" style="background: rgba(167,139,250,0.85);"></div>
               <div>
-                <div class="title">Research Assistant / Research Projects (optional)</div>
-                <div class="when">Add your lab / group · (replace dates)</div>
+                <div class="title">Applied AI build — Transfer Pricing AI Agent (ongoing)</div>
+                <div class="when">Industry–academia bridge · (ongoing)</div>
                 <ul>
-                  <li>Develop empirical designs, text processing pipelines, and evaluation setups for research questions.</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="role">
-              <div class="badge" aria-hidden="true" style="background: rgba(16,185,129,0.85);"></div>
-              <div>
-                <div class="title">Selected engagements (optional)</div>
-                <div class="when">Short bullets that show impact</div>
-                <ul>
-                  <li>Example: automation that reduced manual mapping time and improved consistency across entities.</li>
+                  <li>Design an agent that supports TPD preparation and TP method workflows, grounded in tax regulation and internal guidance.</li>
+                  <li>Generate structured outputs (checklists, summaries, method rationale) and export workflow-ready artifacts for KNIME/Alteryx.</li>
+                  <li>Prioritize evaluation, traceability, and human-in-the-loop review for safe deployment.</li>
                 </ul>
               </div>
             </div>
           </div>
-          <div class="meta" style="margin-top:10px;">Tip: keep 2–4 bullets per role. Prefer outcomes + methods.</div>
+          <div class="meta" style="margin-top:10px;">Tip: keep bullets outcome-driven (time saved, consistency, risk reduction) once you have numbers.</div>
         </div>
       </div>
     </section>
@@ -563,27 +533,16 @@
     <section class="section" id="education">
       <div class="card">
         <div class="pad">
-          <h2>Education</h2>
+          <h2>Academic experience</h2>
           <div class="timeline">
             <div class="role">
               <div class="badge" aria-hidden="true"></div>
               <div>
-                <div class="title">M.Sc. — Goethe University Frankfurt (Quantitative Economics/Finance)</div>
-                <div class="when">Frankfurt · (replace dates)</div>
+                <div class="title">PhD — University of St. Gallen (HSG)</div>
+                <div class="when">Business Administration · Business Innovation · (add start date if you want)</div>
                 <ul>
-                  <li>Thesis: market reactions to AI-related disclosures (earnings calls + quarterly reports).</li>
-                  <li>Methods: event study, factor models, robust inference, text mining/NLP.</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="role">
-              <div class="badge" aria-hidden="true" style="background: rgba(167,139,250,0.85);"></div>
-              <div>
-                <div class="title">Prior degree(s) — University of Zurich (optional)</div>
-                <div class="when">Zurich · (replace dates)</div>
-                <ul>
-                  <li>Add 1–2 lines: major, thesis focus, key coursework, etc.</li>
+                  <li>Research: tailored AI agents for business workflows; reliability, evaluation, and governance.</li>
+                  <li>Co-supervision: University of Zurich (UZH); collaboration: ETH Zürich.</li>
                 </ul>
               </div>
             </div>
@@ -591,15 +550,15 @@
             <div class="role">
               <div class="badge" aria-hidden="true" style="background: rgba(16,185,129,0.85);"></div>
               <div>
-                <div class="title">PhD (incoming) — University of St. Gallen (HSG)</div>
-                <div class="when">Switzerland · (replace/omit date if you prefer)</div>
+                <div class="title">Prior studies (optional)</div>
+                <div class="when">Add your degrees here (or delete this block)</div>
                 <ul>
-                  <li>Focus: AI-enabled operational decision workflows (agentic systems + evaluation + governance).</li>
+                  <li>Placeholder: degree, major, thesis topic, key coursework.</li>
                 </ul>
               </div>
             </div>
           </div>
-          <div class="meta" style="margin-top:10px;">You can remove any block you don’t want public.</div>
+          <div class="meta" style="margin-top:10px;">If you prefer privacy, omit dates and keep affiliations high-level.</div>
         </div>
       </div>
     </section>
@@ -610,82 +569,83 @@
         <div class="pad">
           <h2>Projects</h2>
           <p class="subhead" style="margin-top:-6px;">
-            A curated selection. Replace the links with your repos / PDFs / slides.
+            One active build is described below. Other projects are placeholders for now.
           </p>
 
           <div class="cards">
             <div class="proj">
-              <div class="pill">Research · NLP · Finance</div>
-              <div class="ptitle">AI Disclosures: Talk vs. Realized Language</div>
-              <p>Cross-market study (Europe & China) measuring disclosure-driven abnormal returns with text-derived AI signals.</p>
+              <div class="pill">Active · AI Agent · Transfer Pricing</div>
+              <div class="ptitle">Tailored AI Agent for Operational Transfer Pricing</div>
+              <p>
+                An agent that supports transfer pricing documentation (TPD), tax regulation lookup, TP method workflows,
+                and structured deliverables—designed for auditability and integration into KNIME/Alteryx pipelines.
+              </p>
               <div class="links">
-                <a class="plink" href="#" target="_blank" rel="noopener">Paper (PDF)</a>
-                <a class="plink" href="#" target="_blank" rel="noopener">Code</a>
+                <a class="plink" href="#" target="_blank" rel="noopener">Overview (placeholder)</a>
+                <a class="plink" href="#" target="_blank" rel="noopener">Demo (placeholder)</a>
               </div>
             </div>
 
             <div class="proj">
-              <div class="pill">Engineering · Reproducibility</div>
-              <div class="ptitle">Event-Study Pipeline (End-to-End)</div>
-              <p>Data merges, trading-calendar alignment, factor model estimation, and publication-ready outputs.</p>
+              <div class="pill">Placeholder</div>
+              <div class="ptitle">Project Placeholder</div>
+              <p>Coming soon. (Add project summary and link when ready.)</p>
               <div class="links">
-                <a class="plink" href="#" target="_blank" rel="noopener">Repo</a>
-                <a class="plink" href="#" target="_blank" rel="noopener">Example output</a>
+                <a class="plink" href="#" aria-disabled="true">Link</a>
               </div>
             </div>
 
             <div class="proj">
-              <div class="pill">Applied AI · Agents</div>
-              <div class="ptitle">AI Agent for Operational Workflows</div>
-              <p>Designing a traceable, human-in-the-loop assistant for complex, rules-constrained decision tasks.</p>
+              <div class="pill">Placeholder</div>
+              <div class="ptitle">Project Placeholder</div>
+              <p>Coming soon. (Add project summary and link when ready.)</p>
               <div class="links">
-                <a class="plink" href="#" target="_blank" rel="noopener">Architecture</a>
-                <a class="plink" href="#" target="_blank" rel="noopener">Demo</a>
+                <a class="plink" href="#" aria-disabled="true">Link</a>
               </div>
             </div>
           </div>
 
           <div style="margin-top:14px;"></div>
 
-          <h2 style="margin-top:10px;">AI project deep-dive</h2>
+          <h2 style="margin-top:10px;">AI agent deep-dive</h2>
           <div class="tabs" role="tablist" aria-label="AI project tabs">
-            <button class="tabbtn active" role="tab" aria-selected="true" aria-controls="tab1" id="t1">Disclosure NLP</button>
-            <button class="tabbtn" role="tab" aria-selected="false" aria-controls="tab2" id="t2">LLM Agent</button>
-            <button class="tabbtn" role="tab" aria-selected="false" aria-controls="tab3" id="t3">RAG & Evaluation</button>
+            <button class="tabbtn active" role="tab" aria-selected="true" aria-controls="tab1" id="t1">Scope</button>
+            <button class="tabbtn" role="tab" aria-selected="false" aria-controls="tab2" id="t2">Workflow outputs</button>
+            <button class="tabbtn" role="tab" aria-selected="false" aria-controls="tab3" id="t3">Safety & evaluation</button>
           </div>
 
           <div class="tabpanel active" role="tabpanel" id="tab1" aria-labelledby="t1">
-            <h3>Disclosure NLP (Earnings Calls + Quarterly Reports)</h3>
-            <div class="meta">Signal design · robustness · cross-market comparability</div>
+            <h3>Scope</h3>
+            <div class="meta">Transfer pricing documentation + method workflows</div>
             <ul class="bullets">
-              <li>Separate “AI talk” from “AI realized” implementation signals using structured text features.</li>
-              <li>Estimate CARs/ARs with factor models; validate with placebo and robustness checks.</li>
-              <li>Produce transparent tables and reproducible artifacts for academic review.</li>
+              <li>Assist with TPD drafting and structure (facts, functional analysis, method narrative, supporting rationale).</li>
+              <li>Retrieve and cite relevant tax regulation/internal guidance; maintain traceability of sources.</li>
+              <li>Provide method workflow support (e.g., selection logic, comparability considerations, sanity checks).</li>
             </ul>
           </div>
 
           <div class="tabpanel" role="tabpanel" id="tab2" aria-labelledby="t2">
-            <h3>LLM Agent for Business Workflows</h3>
-            <div class="meta">Human-in-the-loop · auditability · governance</div>
+            <h3>Workflow outputs</h3>
+            <div class="meta">Designed for KNIME / Alteryx integration</div>
             <ul class="bullets">
-              <li>Grounded suggestions with traceable inputs and controlled outputs.</li>
-              <li>Checkpoints for risk control; suitable for sensitive or regulated contexts.</li>
-              <li>Designed as an MVP that integrates into existing tools and data sources.</li>
+              <li>Structured outputs: templates, tables, checklists, and “method rationale” blocks.</li>
+              <li>Export formats for automation: JSON/CSV + report-ready text blocks.</li>
+              <li>Composable steps: retrieval → draft → review → finalize → export to workflow tools.</li>
             </ul>
           </div>
 
           <div class="tabpanel" role="tabpanel" id="tab3" aria-labelledby="t3">
-            <h3>RAG Knowledge Base & Evaluation</h3>
-            <div class="meta">Retrieval · citation · “I don’t know” behavior</div>
+            <h3>Safety & evaluation</h3>
+            <div class="meta">Reliability in consulting settings</div>
             <ul class="bullets">
-              <li>Document ingestion → chunking → embedding → retrieval → cited answers.</li>
-              <li>Evaluation set to measure answer faithfulness and reduce hallucinations.</li>
-              <li>Operational concerns: access control, versioning, and audit logs.</li>
+              <li>Human-in-the-loop checkpoints for sensitive decisions and final deliverables.</li>
+              <li>Evaluation against reference cases: faithfulness, completeness, and consistency.</li>
+              <li>Guardrails: “show sources”, uncertainty handling, and structured response constraints.</li>
             </ul>
           </div>
 
           <div class="meta" style="margin-top:10px;">
-            Want more detail? Add separate pages (e.g., <code>projects.html</code>) or link to PDFs.
+            When ready, replace “placeholder” links with repos, PDFs, or short demos (even a 1-page PDF is enough).
           </div>
         </div>
       </div>
@@ -697,15 +657,15 @@
         <div class="item">
           <h2>Life & hobbies</h2>
           <p>
-            Outside work, I enjoy staying active, exploring cities/food, and reading broadly (economics, technology, history).
-            I also like structured personal projects—small tools that make everyday workflows simpler.
+            I enjoy exploring cities and food, staying active, and building small tools that make workflows cleaner.
+            I like ideas that sit between theory and practice—things that can be shipped, tested, and improved.
           </p>
         </div>
         <div class="item">
-          <h2>Currently curious about</h2>
+          <h2>Working style</h2>
           <p>
-            Agentic systems with measurable reliability · evaluation methods for text models ·
-            how firms communicate innovation credibly · and how to make complex workflows auditable and scalable.
+            Structured thinking · clear documentation · measurable progress · reliable outputs.
+            I care about making AI systems usable in real teams: explainable, auditable, and maintainable.
           </p>
         </div>
       </div>
@@ -722,20 +682,18 @@
             Email: <a href="mailto:YOUR_EMAIL@example.com">YOUR_EMAIL@example.com</a><br/>
             LinkedIn: <a href="https://www.linkedin.com/in/YOUR_LINKEDIN/" target="_blank" rel="noopener">YOUR_LINKEDIN</a><br/>
             GitHub: <a href="https://github.com/YOUR_GITHUB" target="_blank" rel="noopener">YOUR_GITHUB</a><br/>
-            Location: <span style="color: var(--muted);">Germany / Switzerland</span>
+            Base: <span style="color: var(--muted);">Germany / Switzerland</span>
           </p>
         </div>
         <div class="item">
           <h2>Downloads</h2>
-          <p>
-            Upload these files into your repo root and they will work immediately:
-          </p>
+          <p>Optional: upload files to your repo root.</p>
           <div class="actions" style="margin-top: 10px;">
             <a class="btn" href="cv.pdf">CV (PDF)</a>
-            <a class="btn" href="research-summary.pdf">Research Summary (PDF)</a>
+            <a class="btn" href="one-pager.pdf">One-pager (PDF)</a>
           </div>
           <div class="meta" style="margin-top:10px;">
-            Tip: name your files exactly <code>cv.pdf</code> and <code>research-summary.pdf</code>.
+            Tip: name files exactly <code>cv.pdf</code> and <code>one-pager.pdf</code>.
           </div>
         </div>
       </div>
@@ -747,10 +705,8 @@
   </div>
 
   <script>
-    // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Tabs
     const buttons = Array.from(document.querySelectorAll('.tabbtn'));
     const panels  = Array.from(document.querySelectorAll('.tabpanel'));
 
@@ -765,7 +721,7 @@
       if(panel) panel.classList.add('active');
     }
 
-    buttons.forEach((btn, i) => {
+    buttons.forEach(btn => {
       btn.addEventListener('click', () => activate(btn));
       btn.addEventListener('keydown', (e) => {
         const idx = buttons.indexOf(btn);
