@@ -1,64 +1,59 @@
-<!--
-Professional one-page website (single file).
-1) Create a repo (recommended): <your-username>.github.io
-2) Add this as index.html at repo root
-3) Settings → Pages → Deploy from branch → main / (root)
-4) Your site goes live at https://<your-username>.github.io
-
-Tip: Replace placeholders like EMAIL, LINKEDIN, etc.
--->
-
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Yang He — AI Agent Research in Business</title>
-  <meta name="description" content="Yang He — AI Agent, Human in the loop, Business Application." />
-  <meta property="og:title" content="Yang He — AI Agent & Business" />
-  <meta property="og:description" content="Research and projects across LLMs and tailored AI agents for business workflows." />
+  <title>YH — Quant Finance & AI Research</title>
+  <meta name="description" content="YH — Quantitative finance, AI disclosure research, and applied AI systems." />
+
+  <!-- Open Graph (better LinkedIn preview) -->
+  <meta property="og:title" content="YH — Quant Finance & AI Research" />
+  <meta property="og:description" content="Quant finance research, text analytics, and applied AI projects." />
   <meta property="og:type" content="website" />
 
   <style>
     :root{
-      --bg: #0b0f17;
-      --panel: rgba(255,255,255,0.06);
-      --panel2: rgba(255,255,255,0.08);
+      --bg: #0b1020;
+      --card: rgba(255,255,255,0.06);
+      --card2: rgba(255,255,255,0.08);
       --text: rgba(255,255,255,0.92);
       --muted: rgba(255,255,255,0.72);
       --faint: rgba(255,255,255,0.55);
       --border: rgba(255,255,255,0.14);
       --accent: #7dd3fc;
       --accent2: #a78bfa;
+      --ok: rgba(16,185,129,0.85);
       --shadow: 0 18px 50px rgba(0,0,0,0.35);
       --radius: 18px;
+      --radius2: 26px;
     }
 
     *{ box-sizing: border-box; }
     html, body { height: 100%; }
     body{
-      margin: 0;
+      margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(1200px 700px at 15% 10%, rgba(125,211,252,0.18), transparent 60%),
+        radial-gradient(900px 600px at 85% 10%, rgba(167,139,250,0.16), transparent 55%),
+        radial-gradient(800px 650px at 50% 90%, rgba(16,185,129,0.10), transparent 60%),
+        var(--bg);
       color: var(--text);
-      background: radial-gradient(1200px 600px at 20% 10%, rgba(125,211,252,0.18), transparent 55%),
-                  radial-gradient(900px 500px at 85% 15%, rgba(167,139,250,0.16), transparent 60%),
-                  radial-gradient(800px 600px at 50% 85%, rgba(16,185,129,0.10), transparent 60%),
-                  var(--bg);
       line-height: 1.55;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
 
-    a { color: inherit; text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    a{ color: inherit; text-decoration: none; }
+    a:hover{ text-decoration: underline; }
 
     .wrap{
       max-width: 1080px;
       margin: 0 auto;
-      padding: 28px 18px 60px;
+      padding: 28px 18px 70px;
     }
 
-    /* Header */
+    /* Top bar */
     .topbar{
       display:flex;
       align-items:center;
@@ -66,7 +61,7 @@ Tip: Replace placeholders like EMAIL, LINKEDIN, etc.
       gap: 16px;
       padding: 10px 12px;
       border: 1px solid var(--border);
-      background: rgba(0,0,0,0.12);
+      background: rgba(0,0,0,0.14);
       border-radius: 999px;
       backdrop-filter: blur(10px);
     }
@@ -75,28 +70,23 @@ Tip: Replace placeholders like EMAIL, LINKEDIN, etc.
       align-items:center;
       gap: 12px;
       padding-left: 6px;
+      min-width: 240px;
     }
-    .avatar{
-      width: 34px; height: 34px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, rgba(125,211,252,0.95), rgba(167,139,250,0.95));
-      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    .dot{
+      width: 10px; height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(125,211,252,1), rgba(167,139,250,1));
+      box-shadow: 0 10px 22px rgba(0,0,0,0.25);
     }
-    .brand .name{
-      font-weight: 700;
-      letter-spacing: 0.2px;
-    }
-    .brand .tag{
-      color: var(--muted);
-      font-size: 12.5px;
-      margin-top: 1px;
-    }
+    .brand .name{ font-weight: 800; letter-spacing: 0.2px; }
+    .brand .tag{ color: var(--muted); font-size: 12.5px; margin-top: 1px; }
 
     nav{
       display:flex;
       flex-wrap: wrap;
       gap: 10px;
       padding-right: 6px;
+      justify-content: flex-end;
     }
     .navlink{
       padding: 8px 12px;
@@ -112,38 +102,40 @@ Tip: Replace placeholders like EMAIL, LINKEDIN, etc.
       color: var(--text);
     }
 
+    /* Cards */
+    .card{
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.04));
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .pad{ padding: 22px; }
+
     /* Hero */
     .hero{
-      margin-top: 22px;
+      margin-top: 18px;
       display:grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 18px;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 16px;
     }
     @media (max-width: 900px){
       .hero{ grid-template-columns: 1fr; }
     }
 
-    .card{
-      border: 1px solid var(--border);
-      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.04));
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-    .card .pad{ padding: 20px; }
-
     .headline{
-      font-size: clamp(28px, 3vw, 42px);
-      line-height: 1.15;
+      font-size: clamp(28px, 3.2vw, 44px);
+      line-height: 1.12;
       margin: 0 0 12px;
-      letter-spacing: -0.4px;
+      letter-spacing: -0.6px;
     }
     .subhead{
       color: var(--muted);
-      margin: 0 0 16px;
+      margin: 0 0 14px;
       font-size: 15.5px;
     }
-    .chiprow{
+
+    .chips{
       display:flex;
       flex-wrap: wrap;
       gap: 10px;
@@ -157,36 +149,77 @@ Tip: Replace placeholders like EMAIL, LINKEDIN, etc.
       font-size: 13px;
       color: var(--muted);
     }
+
     .actions{
-      margin-top: 18px;
+      margin-top: 16px;
       display:flex;
       flex-wrap: wrap;
       gap: 10px;
+      align-items:center;
     }
     .btn{
       display:inline-flex;
       align-items:center;
       gap: 8px;
       padding: 10px 12px;
-      border-radius: 12px;
+      border-radius: 14px;
       border: 1px solid var(--border);
       background: rgba(255,255,255,0.06);
       color: var(--text);
-      font-weight: 650;
+      font-weight: 700;
       font-size: 13.5px;
       text-decoration:none;
+      white-space: nowrap;
     }
     .btn:hover{ text-decoration:none; background: rgba(255,255,255,0.09); }
     .btn.primary{
       border-color: rgba(125,211,252,0.45);
-      background: linear-gradient(135deg, rgba(125,211,252,0.22), rgba(167,139,250,0.18));
+      background: linear-gradient(135deg, rgba(125,211,252,0.22), rgba(167,139,250,0.16));
+    }
+    .btn.ghost{
+      background: rgba(0,0,0,0.12);
     }
 
-    .side{
-      display:grid;
+    /* Profile card */
+    .profile{
+      display:flex;
+      flex-direction: column;
       gap: 14px;
     }
-    .kpi{
+    .photo{
+      border-radius: 22px;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.20);
+      overflow:hidden;
+      aspect-ratio: 1 / 1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .photo img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+    }
+    .photo .placeholder{
+      padding: 18px;
+      text-align:center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .mini{
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.12);
+      border-radius: 18px;
+      padding: 14px;
+      color: var(--muted);
+      font-size: 13.5px;
+    }
+    .mini strong{ color: var(--text); }
+
+    .kpis{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
@@ -194,30 +227,14 @@ Tip: Replace placeholders like EMAIL, LINKEDIN, etc.
     .stat{
       border: 1px solid var(--border);
       background: rgba(0,0,0,0.12);
-      border-radius: 16px;
+      border-radius: 18px;
       padding: 14px;
     }
-    .stat .big{
-      font-size: 18px;
-      font-weight: 750;
-      letter-spacing: -0.2px;
-    }
-    .stat .small{
-      color: var(--muted);
-      font-size: 12.5px;
-      margin-top: 4px;
-    }
-    .mini{
-      border-top: 1px solid var(--border);
-      padding-top: 14px;
-      color: var(--muted);
-      font-size: 13.5px;
-    }
+    .stat .big{ font-size: 15px; font-weight: 800; letter-spacing: -0.2px; }
+    .stat .small{ color: var(--muted); font-size: 12.5px; margin-top: 4px; }
 
     /* Sections */
-    .section{
-      margin-top: 18px;
-    }
+    .section{ margin-top: 16px; }
     .section h2{
       margin: 0 0 12px;
       font-size: 18px;
@@ -234,7 +251,7 @@ Tip: Replace placeholders like EMAIL, LINKEDIN, etc.
     .item{
       border: 1px solid var(--border);
       background: rgba(0,0,0,0.12);
-      border-radius: 16px;
+      border-radius: 20px;
       padding: 16px;
     }
     .item h3{
@@ -246,28 +263,116 @@ Tip: Replace placeholders like EMAIL, LINKEDIN, etc.
       font-size: 13px;
       margin-bottom: 10px;
     }
-    .item p{
-      margin: 0;
+    .item p{ margin: 0; color: var(--muted); font-size: 13.5px; }
+
+    /* Timeline */
+    .timeline{ display:flex; flex-direction: column; gap: 10px; }
+    .role{
+      display:flex;
+      gap: 12px;
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+    }
+    .role .badge{
+      width: 10px;
+      min-width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      margin-top: 6px;
+      background: rgba(125,211,252,0.85);
+      box-shadow: 0 10px 22px rgba(0,0,0,0.25);
+    }
+    .role .title{
+      font-weight: 800;
+      letter-spacing: -0.1px;
+    }
+    .role .when{
+      color: var(--faint);
+      font-size: 12.5px;
+      margin-top: 2px;
+    }
+    .role ul{
+      margin: 8px 0 0;
+      padding-left: 18px;
       color: var(--muted);
       font-size: 13.5px;
     }
+    .role li{ margin: 6px 0; }
 
-    /* Tabs */
-    .tabs{
+    /* Projects */
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 1000px){
+      .cards{ grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 700px){
+      .cards{ grid-template-columns: 1fr; }
+    }
+    .proj{
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: rgba(0,0,0,0.12);
+      padding: 16px;
+      display:flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .proj .pill{
+      display:inline-flex;
+      align-self:flex-start;
+      gap: 8px;
+      align-items:center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 12.5px;
+      background: rgba(255,255,255,0.03);
+    }
+    .proj .ptitle{
+      font-size: 15.5px;
+      font-weight: 850;
+      letter-spacing: -0.2px;
+      margin-top: 2px;
+    }
+    .proj p{
+      margin:0;
+      color: var(--muted);
+      font-size: 13.5px;
+    }
+    .proj .links{
+      margin-top: 8px;
       display:flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 12px;
+      gap: 8px;
     }
+    .plink{
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      font-size: 13px;
+      text-decoration:none;
+    }
+    .plink:hover{ background: rgba(255,255,255,0.07); text-decoration:none; }
+
+    /* Tabs (AI projects) */
+    .tabs{ display:flex; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
     .tabbtn{
       border: 1px solid var(--border);
       background: rgba(0,0,0,0.12);
       color: var(--muted);
       padding: 10px 12px;
       border-radius: 999px;
-      cursor: pointer;
+      cursor:pointer;
       font-size: 13.5px;
-      font-weight: 650;
+      font-weight: 800;
     }
     .tabbtn:hover{ background: rgba(255,255,255,0.06); color: var(--text); }
     .tabbtn.active{
@@ -279,77 +384,45 @@ Tip: Replace placeholders like EMAIL, LINKEDIN, etc.
       display:none;
       border: 1px solid var(--border);
       background: rgba(0,0,0,0.12);
-      border-radius: 16px;
+      border-radius: 20px;
       padding: 16px;
     }
     .tabpanel.active{ display:block; }
-    .tabpanel h3{
-      margin: 0 0 6px;
-      font-size: 15.5px;
-    }
-    .bullets{
-      margin: 10px 0 0;
-      padding-left: 18px;
-      color: var(--muted);
-      font-size: 13.5px;
-    }
+    .tabpanel h3{ margin: 0 0 6px; font-size: 15.5px; }
+    .bullets{ margin: 10px 0 0; padding-left: 18px; color: var(--muted); font-size: 13.5px; }
     .bullets li{ margin: 6px 0; }
-    .linksline{
-      margin-top: 12px;
-      display:flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      color: var(--muted);
-      font-size: 13.5px;
-    }
-    .linksline a{
-      padding: 8px 10px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.04);
-      text-decoration: none;
-    }
-    .linksline a:hover{ background: rgba(255,255,255,0.07); }
 
     /* Footer */
-    footer{
-      margin-top: 20px;
-      color: var(--faint);
-      font-size: 12.5px;
-      text-align:center;
-    }
-    .hr{
-      margin: 18px 0;
-      height: 1px;
-      background: rgba(255,255,255,0.10);
-      border: 0;
-    }
+    .hr{ margin: 18px 0; height: 1px; background: rgba(255,255,255,0.10); border: 0; }
+    footer{ margin-top: 18px; color: var(--faint); font-size: 12.5px; text-align:center; }
 
-    /* Print-friendly for CV-ish use */
+    /* Print */
     @media print{
-      body{ background: #fff; color: #111; }
-      .topbar, .btn, .tabs, footer{ display:none !important; }
-      .card, .item, .tabpanel, .stat { box-shadow: none; background: #fff; border-color: #ddd; }
-      a{ color: #111; text-decoration: none; }
+      body{ background:#fff; color:#111; }
+      .topbar, .actions, .tabs, footer{ display:none !important; }
+      .card, .item, .proj, .tabpanel, .role, .stat { box-shadow:none; background:#fff; border-color:#ddd; }
+      a{ color:#111; text-decoration:none; }
     }
   </style>
 </head>
 
 <body>
   <div class="wrap">
-    <!-- Topbar -->
+    <!-- Top -->
     <header class="topbar">
       <div class="brand">
-        <div class="avatar" aria-hidden="true"></div>
+        <div class="dot" aria-hidden="true"></div>
         <div>
           <div class="name">YH</div>
-          <div class="tag">Buiness Innvoation · AI Agent · Applied AI</div>
+          <div class="tag">Quantitative Economics/Finance · AI & Text Analytics · Applied AI</div>
         </div>
       </div>
       <nav aria-label="Primary navigation">
         <a class="navlink" href="#about">About</a>
         <a class="navlink" href="#experience">Experience</a>
-        <a class="navlink" href="#ai-projects">AI Projects</a>
+        <a class="navlink" href="#education">Education</a>
+        <a class="navlink" href="#projects">Projects</a>
+        <a class="navlink" href="#hobbies">Life</a>
         <a class="navlink" href="#contact">Contact</a>
       </nav>
     </header>
@@ -358,187 +431,282 @@ Tip: Replace placeholders like EMAIL, LINKEDIN, etc.
     <section class="hero" id="top">
       <div class="card">
         <div class="pad">
-          <h1 class="headline">Building rigorous research and practical AI systems.</h1>
+          <h1 class="headline">Research-driven finance analytics and practical AI systems.</h1>
+
           <p class="subhead">
-            I work at the intersection of <strong>AI Agent</strong> and <strong>business consulting</strong>
-            —turning messy real-world data and business processes into reliable analytics and AI tools.
+            I’m <strong>YH</strong> — working at the intersection of <strong>empirical finance</strong>, <strong>corporate disclosures</strong>,
+            and <strong>applied AI</strong>. My current focus is measuring how equity markets react to AI-related disclosures
+            using event studies, factor models, and text mining of earnings calls and quarterly reports.
           </p>
 
           <div class="actions">
-            <!-- Replace these links -->
-            <a class="btn primary" href="#ai-projects">Explore AI Projects</a>
-            <a class="btn" href="mailto:yang.he.0039@gmail.com">Email</a>
-            <a class="btn" href="https://www.linkedin.com/in/yang--he/" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="btn" href="https://github.com/Yang-He-39" target="_blank" rel="noopener">GitHub</a>
+            <!-- Replace placeholders -->
+            <a class="btn primary" href="#projects">Explore projects</a>
+            <a class="btn ghost" href="#contact">Contact</a>
+            <a class="btn" href="mailto:YOUR_EMAIL@example.com">Email</a>
+            <a class="btn" href="https://www.linkedin.com/in/YOUR_LINKEDIN/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn" href="https://github.com/YOUR_GITHUB" target="_blank" rel="noopener">GitHub</a>
           </div>
 
-          <div class="chiprow" aria-label="Focus areas">
-            <span class="chip">Agentic AI</span>
-            <span class="chip">AI Agent</span>
-            <span class="chip">Business Workflow</span>
-            <span class="chip">RAG · workflow automation</span>
+          <div class="chips" aria-label="Focus areas">
+            <span class="chip">Event studies · factor models</span>
+            <span class="chip">Earnings calls + quarterly reports (QR)</span>
+            <span class="chip">NLP (FinBERT / domain sentiment)</span>
+            <span class="chip">LLM agents · RAG · workflow automation</span>
           </div>
         </div>
       </div>
 
-      <aside class="side">
+      <aside class="profile">
         <div class="card">
           <div class="pad">
-            <div class="kpi">
+            <div class="photo" aria-label="Profile picture">
+              <!-- Put your photo at assets/profile.jpg -->
+              <img src="assets/profile.jpg" alt="YH profile photo" onerror="this.remove(); this.parentElement.innerHTML='<div class=&quot;placeholder&quot;>Add your photo: <strong>assets/profile.jpg</strong><br/>Recommended: square image, ~800×800.</div>';">
+            </div>
+
+            <div class="kpis" style="margin-top:14px;">
               <div class="stat">
-                <div class="big">Finance + AI</div>
-                <div class="small">Empirical research + applied ML</div>
+                <div class="big">Finance × AI</div>
+                <div class="small">Empirical research + NLP</div>
               </div>
               <div class="stat">
-                <div class="big">Europe · China</div>
-                <div class="small">Cross-market disclosure analytics</div>
+                <div class="big">Europe & China</div>
+                <div class="small">Cross-market analysis</div>
               </div>
               <div class="stat">
-                <div class="big">Consulting</div>
-                <div class="small">EY Germany</div>
+                <div class="big">Industry</div>
+                <div class="small">EY Germany (analytics)</div>
               </div>
               <div class="stat">
-                <div class="big">PhD at University of St. Gallen (HSG)</div>
-                <div class="small">Start: January 2026</div>
+                <div class="big">Academia</div>
+                <div class="small">PhD track (HSG)</div>
               </div>
             </div>
-            <div class="mini">
-              Current focus: Building AI tooling for complex business workflows.
+
+            <div class="mini" style="margin-top:12px;">
+              <strong>Now:</strong> Master’s thesis + applied analytics work.<br/>
+              <strong>Next:</strong> building AI-enabled tools for complex, rules-constrained workflows.
             </div>
           </div>
         </div>
       </aside>
     </section>
 
-    <!-- About + Experience -->
-    <section class="section grid2" id="about">
-      <div class="item">
-        <h2>About</h2>
-        <p>
-          I’m Yang He, a PhD Student and consultant focused on how AI changes decision-making in markets and firms.
-          My work combines Business workflows and AI Agent.
-        </p>
-      </div>
-      <div class="item" id="experience">
-        <h2>Experience</h2>
-        <div class="meta">Selected highlights (edit as needed)</div>
-        <p>
-          <strong>EY Germany</strong> — Consulting (analytics, operational and process-driven workstreams).<br/>
-          <strong>PhD Candiate</strong> — HSG (with co-supervision at UZH & collaboration at ETH Zürich), building AI-enabled systems for operational decision workflows.
-        </p>
-      </div>
-    </section>
-
-    <!-- Selected Work -->
-    <section class="section grid2" aria-label="Selected work">
-      <div class="item">
-        <h2>Selected Work</h2>
-        <div class="meta">Research / analytics (replace with links to PDFs or repos)</div>
-        <p>
-          • Event-study pipeline with factor-model abnormal returns and robust inference<br/>
-          • NLP features for “AI Talk” vs “AI Realized” signals across disclosure channels<br/>
-          • Cross-market comparability: Europe (STOXX) vs China (SSE)
-        </p>
-      </div>
-      <div class="item">
-        <h2>Tooling</h2>
-        <div class="meta">Engineering & reproducibility</div>
-        <p>
-          • End-to-end Python pipelines (data merges, trading calendar alignment, outputs)<br/>
-          • Text analytics workflows for transcripts and quarterly reporting sections<br/>
-          • Reproducible tables/figures and clean handoff for supervisors/stakeholders
-        </p>
+    <!-- About -->
+    <section class="section" id="about">
+      <div class="grid2">
+        <div class="item">
+          <h2>Brief introduction</h2>
+          <p>
+            I build reproducible research pipelines and decision-support tools. My work combines market data, factor models,
+            and domain NLP to extract signals from real-world corporate communication. I care about reliability, evaluation,
+            and making results understandable for both academic and business audiences.
+          </p>
+        </div>
+        <div class="item">
+          <h2>What I’m good at</h2>
+          <p>
+            Python pipelines · event-study design · Fama-French factor models · text analytics for disclosures ·
+            documentation & reproducibility · bridging research and business constraints.
+          </p>
+        </div>
       </div>
     </section>
 
-    <!-- AI Projects (Tabs) -->
-    <section class="section" id="ai-projects">
+    <!-- Experience -->
+    <section class="section" id="experience">
       <div class="card">
         <div class="pad">
-          <h2>AI Projects</h2>
+          <h2>Work experience</h2>
+          <div class="timeline">
+            <div class="role">
+              <div class="badge" aria-hidden="true"></div>
+              <div>
+                <div class="title">Consultant — EY Germany</div>
+                <div class="when">Eschborn/Frankfurt · (replace dates)</div>
+                <ul>
+                  <li>Analytics + process workstreams; build structured, auditable workflows for complex business tasks.</li>
+                  <li>Translate business questions into reproducible data pipelines and stakeholder-ready outputs.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="role">
+              <div class="badge" aria-hidden="true" style="background: rgba(167,139,250,0.85);"></div>
+              <div>
+                <div class="title">Research Assistant / Research Projects (optional)</div>
+                <div class="when">Add your lab / group · (replace dates)</div>
+                <ul>
+                  <li>Develop empirical designs, text processing pipelines, and evaluation setups for research questions.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="role">
+              <div class="badge" aria-hidden="true" style="background: rgba(16,185,129,0.85);"></div>
+              <div>
+                <div class="title">Selected engagements (optional)</div>
+                <div class="when">Short bullets that show impact</div>
+                <ul>
+                  <li>Example: automation that reduced manual mapping time and improved consistency across entities.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="meta" style="margin-top:10px;">Tip: keep 2–4 bullets per role. Prefer outcomes + methods.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="section" id="education">
+      <div class="card">
+        <div class="pad">
+          <h2>Education</h2>
+          <div class="timeline">
+            <div class="role">
+              <div class="badge" aria-hidden="true"></div>
+              <div>
+                <div class="title">M.Sc. — Goethe University Frankfurt (Quantitative Economics/Finance)</div>
+                <div class="when">Frankfurt · (replace dates)</div>
+                <ul>
+                  <li>Thesis: market reactions to AI-related disclosures (earnings calls + quarterly reports).</li>
+                  <li>Methods: event study, factor models, robust inference, text mining/NLP.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="role">
+              <div class="badge" aria-hidden="true" style="background: rgba(167,139,250,0.85);"></div>
+              <div>
+                <div class="title">Prior degree(s) — University of Zurich (optional)</div>
+                <div class="when">Zurich · (replace dates)</div>
+                <ul>
+                  <li>Add 1–2 lines: major, thesis focus, key coursework, etc.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="role">
+              <div class="badge" aria-hidden="true" style="background: rgba(16,185,129,0.85);"></div>
+              <div>
+                <div class="title">PhD (incoming) — University of St. Gallen (HSG)</div>
+                <div class="when">Switzerland · (replace/omit date if you prefer)</div>
+                <ul>
+                  <li>Focus: AI-enabled operational decision workflows (agentic systems + evaluation + governance).</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="meta" style="margin-top:10px;">You can remove any block you don’t want public.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section" id="projects">
+      <div class="card">
+        <div class="pad">
+          <h2>Projects</h2>
           <p class="subhead" style="margin-top:-6px;">
-            Click a tab to explore project summaries. Replace the “Links” targets with your repos, PDFs, demos, or slides.
+            A curated selection. Replace the links with your repos / PDFs / slides.
           </p>
 
+          <div class="cards">
+            <div class="proj">
+              <div class="pill">Research · NLP · Finance</div>
+              <div class="ptitle">AI Disclosures: Talk vs. Realized Language</div>
+              <p>Cross-market study (Europe & China) measuring disclosure-driven abnormal returns with text-derived AI signals.</p>
+              <div class="links">
+                <a class="plink" href="#" target="_blank" rel="noopener">Paper (PDF)</a>
+                <a class="plink" href="#" target="_blank" rel="noopener">Code</a>
+              </div>
+            </div>
+
+            <div class="proj">
+              <div class="pill">Engineering · Reproducibility</div>
+              <div class="ptitle">Event-Study Pipeline (End-to-End)</div>
+              <p>Data merges, trading-calendar alignment, factor model estimation, and publication-ready outputs.</p>
+              <div class="links">
+                <a class="plink" href="#" target="_blank" rel="noopener">Repo</a>
+                <a class="plink" href="#" target="_blank" rel="noopener">Example output</a>
+              </div>
+            </div>
+
+            <div class="proj">
+              <div class="pill">Applied AI · Agents</div>
+              <div class="ptitle">AI Agent for Operational Workflows</div>
+              <p>Designing a traceable, human-in-the-loop assistant for complex, rules-constrained decision tasks.</p>
+              <div class="links">
+                <a class="plink" href="#" target="_blank" rel="noopener">Architecture</a>
+                <a class="plink" href="#" target="_blank" rel="noopener">Demo</a>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;"></div>
+
+          <h2 style="margin-top:10px;">AI project deep-dive</h2>
           <div class="tabs" role="tablist" aria-label="AI project tabs">
-            <button class="tabbtn active" role="tab" aria-selected="true" aria-controls="tab-disclosure" id="btn-disclosure">AI Disclosure Research</button>
-            <button class="tabbtn" role="tab" aria-selected="false" aria-controls="tab-pipeline" id="btn-pipeline">Event Study Pipeline</button>
-            <button class="tabbtn" role="tab" aria-selected="false" aria-controls="tab-agent" id="btn-agent">AI Agent (Ops Workflows)</button>
-            <button class="tabbtn" role="tab" aria-selected="false" aria-controls="tab-rag" id="btn-rag">RAG Knowledge Base</button>
+            <button class="tabbtn active" role="tab" aria-selected="true" aria-controls="tab1" id="t1">Disclosure NLP</button>
+            <button class="tabbtn" role="tab" aria-selected="false" aria-controls="tab2" id="t2">LLM Agent</button>
+            <button class="tabbtn" role="tab" aria-selected="false" aria-controls="tab3" id="t3">RAG & Evaluation</button>
           </div>
 
-          <div class="tabpanel active" role="tabpanel" id="tab-disclosure" aria-labelledby="btn-disclosure">
-            <h3>AI Disclosure Research: Talk vs. Realized</h3>
-            <div class="meta">Empirical finance · NLP · corporate communications</div>
-            <p class="subhead" style="margin: 0;">
-              Measuring how equity markets respond to AI-related corporate disclosures by separating “talk” from evidence of realized implementation.
-            </p>
+          <div class="tabpanel active" role="tabpanel" id="tab1" aria-labelledby="t1">
+            <h3>Disclosure NLP (Earnings Calls + Quarterly Reports)</h3>
+            <div class="meta">Signal design · robustness · cross-market comparability</div>
             <ul class="bullets">
-              <li>Disclosure channels: earnings calls (EC) and quarterly reports (QR).</li>
-              <li>Text features: AI intensity, tone signals (domain sentiment), and realized indicators.</li>
-              <li>Design: event windows + factor model baselines, robust inference and placebo checks.</li>
+              <li>Separate “AI talk” from “AI realized” implementation signals using structured text features.</li>
+              <li>Estimate CARs/ARs with factor models; validate with placebo and robustness checks.</li>
+              <li>Produce transparent tables and reproducible artifacts for academic review.</li>
             </ul>
-            <div class="linksline">
-              <a href="#" target="_blank" rel="noopener">Paper / PDF</a>
-              <a href="#" target="_blank" rel="noopener">Code (GitHub)</a>
-              <a href="#" target="_blank" rel="noopener">Slides</a>
-            </div>
           </div>
 
-          <div class="tabpanel" role="tabpanel" id="tab-pipeline" aria-labelledby="btn-pipeline">
-            <h3>Reproducible Event-Study Pipeline</h3>
-            <div class="meta">Data engineering · asset pricing · reproducibility</div>
-            <p class="subhead" style="margin: 0;">
-              A robust, reproducible workflow that ingests prices, aligns trading calendars, builds event panels, and produces tables/figures end-to-end.
-            </p>
+          <div class="tabpanel" role="tabpanel" id="tab2" aria-labelledby="t2">
+            <h3>LLM Agent for Business Workflows</h3>
+            <div class="meta">Human-in-the-loop · auditability · governance</div>
             <ul class="bullets">
-              <li>Automated merging: firm identifiers, event timestamps, and market/factor data.</li>
-              <li>Outputs: clean panel datasets + publication-ready summary tables.</li>
-              <li>Validation: coverage flags, sanity checks, and structured export artifacts.</li>
+              <li>Grounded suggestions with traceable inputs and controlled outputs.</li>
+              <li>Checkpoints for risk control; suitable for sensitive or regulated contexts.</li>
+              <li>Designed as an MVP that integrates into existing tools and data sources.</li>
             </ul>
-            <div class="linksline">
-              <a href="#" target="_blank" rel="noopener">Repo</a>
-              <a href="#" target="_blank" rel="noopener">Method note</a>
-              <a href="#" target="_blank" rel="noopener">Example output</a>
-            </div>
           </div>
 
-          <div class="tabpanel" role="tabpanel" id="tab-agent" aria-labelledby="btn-agent">
-            <h3>AI Agent for Operational Decision Workflows</h3>
-            <div class="meta">LLM agents · automation · business rules</div>
-            <p class="subhead" style="margin: 0;">
-              Designing an AI assistant that helps with complex, rules-constrained operational workflows by combining retrieval, structured reasoning, and auditability.
-            </p>
+          <div class="tabpanel" role="tabpanel" id="tab3" aria-labelledby="t3">
+            <h3>RAG Knowledge Base & Evaluation</h3>
+            <div class="meta">Retrieval · citation · “I don’t know” behavior</div>
             <ul class="bullets">
-              <li>Focus: reliable recommendations with traceable inputs and outputs.</li>
-              <li>Human-in-the-loop: review checkpoints for risk control and compliance.</li>
-              <li>Deliverable: an MVP that integrates into existing tooling without heavy re-platforming.</li>
+              <li>Document ingestion → chunking → embedding → retrieval → cited answers.</li>
+              <li>Evaluation set to measure answer faithfulness and reduce hallucinations.</li>
+              <li>Operational concerns: access control, versioning, and audit logs.</li>
             </ul>
-            <div class="linksline">
-              <a href="#" target="_blank" rel="noopener">Concept note</a>
-              <a href="#" target="_blank" rel="noopener">Demo video</a>
-              <a href="#" target="_blank" rel="noopener">Architecture diagram</a>
-            </div>
           </div>
 
-          <div class="tabpanel" role="tabpanel" id="tab-rag" aria-labelledby="btn-rag">
-            <h3>RAG Knowledge Base for Domain Documents</h3>
-            <div class="meta">Retrieval · evaluation · grounded answers</div>
-            <p class="subhead" style="margin: 0;">
-              Building a document-backed assistant that answers questions with citations, versioning, and quality checks—designed for real operational use.
-            </p>
-            <ul class="bullets">
-              <li>Pipeline: ingest → chunk → embed → retrieve → answer with references.</li>
-              <li>Quality: eval set, hallucination checks, and “I don’t know” behavior.</li>
-              <li>Operational: access control, audit logs, and update workflows.</li>
-            </ul>
-            <div class="linksline">
-              <a href="#" target="_blank" rel="noopener">Prototype</a>
-              <a href="#" target="_blank" rel="noopener">Evaluation notes</a>
-              <a href="#" target="_blank" rel="noopener">Docs</a>
-            </div>
+          <div class="meta" style="margin-top:10px;">
+            Want more detail? Add separate pages (e.g., <code>projects.html</code>) or link to PDFs.
           </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- Hobbies -->
+    <section class="section" id="hobbies">
+      <div class="grid2">
+        <div class="item">
+          <h2>Life & hobbies</h2>
+          <p>
+            Outside work, I enjoy staying active, exploring cities/food, and reading broadly (economics, technology, history).
+            I also like structured personal projects—small tools that make everyday workflows simpler.
+          </p>
+        </div>
+        <div class="item">
+          <h2>Currently curious about</h2>
+          <p>
+            Agentic systems with measurable reliability · evaluation methods for text models ·
+            how firms communicate innovation credibly · and how to make complex workflows auditable and scalable.
+          </p>
         </div>
       </div>
     </section>
@@ -551,66 +719,64 @@ Tip: Replace placeholders like EMAIL, LINKEDIN, etc.
         <div class="item">
           <h2>Contact</h2>
           <p>
-            Email: <a href="mailto:EMAIL@example.com">EMAIL@example.com</a><br/>
-            LinkedIn: <a href="https://www.linkedin.com/in/YOUR-LINKEDIN/" target="_blank" rel="noopener">YOUR-LINKEDIN</a><br/>
-            GitHub: <a href="https://github.com/YOUR-GITHUB" target="_blank" rel="noopener">YOUR-GITHUB</a>
+            Email: <a href="mailto:YOUR_EMAIL@example.com">YOUR_EMAIL@example.com</a><br/>
+            LinkedIn: <a href="https://www.linkedin.com/in/YOUR_LINKEDIN/" target="_blank" rel="noopener">YOUR_LINKEDIN</a><br/>
+            GitHub: <a href="https://github.com/YOUR_GITHUB" target="_blank" rel="noopener">YOUR_GITHUB</a><br/>
+            Location: <span style="color: var(--muted);">Germany / Switzerland</span>
           </p>
         </div>
         <div class="item">
           <h2>Downloads</h2>
           <p>
-            Add these files to your repo root and link them here:
-            <br/><br/>
-            <a class="btn" href="cv.pdf">CV (PDF)</a>
-            <a class="btn" href="research.pdf">Research Summary (PDF)</a>
+            Upload these files into your repo root and they will work immediately:
           </p>
+          <div class="actions" style="margin-top: 10px;">
+            <a class="btn" href="cv.pdf">CV (PDF)</a>
+            <a class="btn" href="research-summary.pdf">Research Summary (PDF)</a>
+          </div>
           <div class="meta" style="margin-top:10px;">
-            Tip: upload <code>cv.pdf</code> and <code>research.pdf</code> to the repository root.
+            Tip: name your files exactly <code>cv.pdf</code> and <code>research-summary.pdf</code>.
           </div>
         </div>
       </div>
     </section>
 
     <footer>
-      © <span id="year"></span> YH · Built with GitHub Pages
+      © <span id="year"></span> YH · Hosted on GitHub Pages
     </footer>
   </div>
 
   <script>
-    // Year
+    // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // Tabs
     const buttons = Array.from(document.querySelectorAll('.tabbtn'));
     const panels  = Array.from(document.querySelectorAll('.tabpanel'));
 
-    function activateTab(btn) {
-      buttons.forEach(b => {
-        b.classList.remove('active');
-        b.setAttribute('aria-selected', 'false');
-      });
+    function activate(btn){
+      buttons.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
       panels.forEach(p => p.classList.remove('active'));
 
       btn.classList.add('active');
-      btn.setAttribute('aria-selected', 'true');
-      const panelId = btn.getAttribute('aria-controls');
-      const panel = document.getElementById(panelId);
-      if (panel) panel.classList.add('active');
+      btn.setAttribute('aria-selected','true');
+      const id = btn.getAttribute('aria-controls');
+      const panel = document.getElementById(id);
+      if(panel) panel.classList.add('active');
     }
 
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => activateTab(btn));
+    buttons.forEach((btn, i) => {
+      btn.addEventListener('click', () => activate(btn));
       btn.addEventListener('keydown', (e) => {
-        // basic keyboard navigation
         const idx = buttons.indexOf(btn);
-        if (e.key === 'ArrowRight') {
+        if(e.key === 'ArrowRight'){
           e.preventDefault();
-          activateTab(buttons[(idx + 1) % buttons.length]);
-          buttons[(idx + 1) % buttons.length].focus();
-        } else if (e.key === 'ArrowLeft') {
+          const next = buttons[(idx + 1) % buttons.length];
+          activate(next); next.focus();
+        } else if(e.key === 'ArrowLeft'){
           e.preventDefault();
-          activateTab(buttons[(idx - 1 + buttons.length) % buttons.length]);
-          buttons[(idx - 1 + buttons.length) % buttons.length].focus();
+          const prev = buttons[(idx - 1 + buttons.length) % buttons.length];
+          activate(prev); prev.focus();
         }
       });
     });
